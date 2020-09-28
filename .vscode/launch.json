@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "run all spec in all browsers",
+            "type": "node",
+            "request": "launch",
+            "args": ["wdio.conf.js"],
+            "cwd": "${workspaceFolder}",
+            "autoAttachChildProcesses": true,
+            "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "run select spec in chrome",
+            "type": "node",
+            "request": "launch",
+            "args": ["wdio.CHROME.conf.js", "--spec", "${file}"],
+            "cwd": "${workspaceFolder}",
+            "autoAttachChildProcesses": true,
+            "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+            "console": "integratedTerminal"
+        }
+    ]
+}
