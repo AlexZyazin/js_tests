@@ -1,15 +1,13 @@
-//const homePage = require("../pages/home.page");
-//const pagesearchPage = require("../pages/search.page");
-//const searchPage = requireimport searchPage from '../pages/search.page'
 import HomePage from '../pages/home.page'
 import SearchPage from '../pages/search.page'
+
 describe('eapteka.ru', () => {
+
     it('Search Nurofen', () => {
-        HomePage.open();
-        HomePage.searchInput.waitForExist({ timeout: 5000 });
-        HomePage.searchInput.setValue('нурофен');
-        HomePage.searchButton.click();
+        HomePage.open('/');
+        HomePage.searchSomething('нурофен');
     });
+
     it('Count results', () => {
         SearchPage.searchItem.waitForExist({ timeout: 5000 });
         let text = SearchPage.searchTitle.getText();
@@ -17,4 +15,5 @@ describe('eapteka.ru', () => {
         let numIt = SearchPage.searchItems.length;
         expect(numEl).to.equal(numIt);
     })
+
 })

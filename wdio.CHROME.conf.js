@@ -30,9 +30,14 @@ exports.config = {
     //    ,'docker','docker'
     ],
     framework: 'mocha',
-    reporters: ['spec'
-    //,['allure', {outputDir: 'allure-results'}],'html'
-    ],
+    reporters: ['spec',
+//   ['allure', {
+//        outputDir: 'allure-results',
+//        disableWebdrivereStepsReporting: true,
+//        disableWebdrivereScreenshotsReporting: true,
+//    }],
+//    'html'
+   ],
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,

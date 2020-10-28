@@ -9,6 +9,4 @@ describe('eapoteka.ru', function () {
         searchbutton.click();
         browser.pause(3000);
     });
-//    it('Count results', function () {
-//    })
 })

@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
+    "@babel/eslint-parser": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
     "@rpii/wdio-html-reporter": "^6.1.1",
@@ -30,7 +31,7 @@
     "@wdio/sync": "^6.4.0",
     "chai": "^4.2.0",
     "chai-webdriverio": "^1.0.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.10.0",
     "local-runner": "^0.1.1-alpha",
     "wdio-chromedriver-service": "^6.0.3",
     "wdio-docker-service": "^2.4.0",

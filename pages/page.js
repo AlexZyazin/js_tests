@@ -1,6 +1,6 @@
 export default class Page {
     open (path) {
-        browser.url('/')
+        browser.url(path)
         browser.setWindowSize(1920, 1080);
     }
 }
