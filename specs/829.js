@@ -1,6 +1,6 @@
 import HomePage from '../pages/home.page'
 import SearchPage from '../pages/search.page'
-import LoginData from '../testdata/logindata'
+import configData from '../config'
 import LkPage from '../pages/lk.page'
 
 describe('eapteka.ru', () => {
@@ -8,7 +8,7 @@ describe('eapteka.ru', () => {
     it('login and search', () => {
         HomePage.open('/');
         HomePage.selectPlace.click();
-        HomePage.logIn(LoginData.login, LoginData.password);
+        HomePage.logIn(configData.login, configData.password);
         HomePage.searchSomething('нурофен');
     });
 
@@ -17,7 +17,7 @@ describe('eapteka.ru', () => {
         SearchPage.lk.click();
     })
 
-    it('go to favourites, assert and delete a like item', () => {
+    it('go to favourites, assert and delete the like item', () => {
         LkPage.goToLikeItems();
         LkPage.itemIsLike.waitForDisplayed({ timeout: 5000 });
         expect(SearchPage.itemTitle.getText()).to.equal(LkPage.itemTitle.getText());

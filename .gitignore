@@ -63,4 +63,4 @@ typings/
 /errorShots/
 .idea/
 package-lock.json
-testdata/
+config.js
