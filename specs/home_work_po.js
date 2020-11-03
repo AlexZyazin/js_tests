@@ -6,7 +6,7 @@ describe('eapteka.ru', () => {
     it('Search item', () => {
         HomePage.open('/');
         HomePage.selectPlace.click();
-        HomePage.searchSomething('вакцина');
+        HomePage.searchSomething('апельсин');
     });
 
     it('Count results', () => {
