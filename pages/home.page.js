@@ -16,12 +16,15 @@ class HomePage extends Page {
         this.loginField.waitForExist({ timeout: 5000 });
         this.loginField.setValue(index1);
         this.passwordField.setValue(index2);
+        this.goEnter.waitForClickable({ timeout: 5000 });
         this.goEnter.click();
+        this.goEnter.waitForDisplayed({ timeout: 5000, reverse: true });
     }
     searchSomething (index) {
-        this.searchInput.waitForEnabled({ timeout: 5000 });
+        this.searchInput.waitForDisplayed({ timeout: 5000 });
         this.searchInput.moveTo();
         this.searchInput.setValue(index);
+        //this.searchButton.waitForClickable({ timeout: 5000 });
         this.searchButton.click();
     }
 }

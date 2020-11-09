@@ -6,7 +6,7 @@ describe('eapteka.ru', () => {
     it('Search item', () => {
         HomePage.open('/');
         HomePage.selectPlace.click();
-        HomePage.searchSomething('апельсин');
+        HomePage.searchSomething('нурофен');
     });
 
     it('Count results', () => {
@@ -22,7 +22,7 @@ describe('eapteka.ru', () => {
                 let num = SearchPage.searchItems.length;
                 numIt = numIt + num;                
               }
-          }
+        }
         console.log('Sum of items on pages: ', numIt);
         expect(numEl).to.equal(numIt);
     })

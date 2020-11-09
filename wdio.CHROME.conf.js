@@ -40,7 +40,7 @@ exports.config = {
    ],
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000,
+        timeout: 120000,
         require: ['@babel/register']
     },
     beforeTest: function () {

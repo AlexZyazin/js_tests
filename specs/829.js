@@ -13,17 +13,17 @@ describe('eapteka.ru', () => {
     });
 
     it('like item and go to lk', () => {
-        SearchPage.likeItem();
+        SearchPage.likeItems(0);
         SearchPage.lk.click();
     })
 
     it('go to favourites, assert and delete the like item', () => {
         LkPage.goToLikeItems();
-        LkPage.itemIsLike.waitForDisplayed({ timeout: 5000 });
-        expect(SearchPage.itemTitle.getText()).to.equal(LkPage.itemTitle.getText());
-        LkPage.itemIsLike.click();
-        LkPage.itemTitle.waitForExist({ timeout: 5000, reverse: true });
-        expect(LkPage.itemTitle.isExisting()).to.equal(false);
+        LkPage.likeItemsGroup.waitForDisplayed({ timeout: 5000 });
+        expect(SearchPage.itemTitle.getText()).to.equal(LkPage.itemsTitle[0].getText());
+        LkPage.dislikeItems(0);
+        LkPage.likeItemsGroup.waitForExist({ timeout: 5000, reverse: true });
+        expect(LkPage.noLikeItems.isExisting()).to.equal(true);
     })
 
 })
