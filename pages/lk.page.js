@@ -10,6 +10,7 @@ class LkPage extends Page {
     get noLikeItems() {return $("//font[text()='Список избранного пуст']")}
     get likeTitle() {return $("//h1[text()='Избранное']")}
     get loader() {return $('div.waitwindowlocalshadow')}
+    get allPages() {return $('ul.d-flex.justify-content-start.justify-content-md-end')}
 
     goToLikeItems () {
         this.favourite.waitForExist({ timeout: 5000 });

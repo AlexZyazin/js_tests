@@ -12,7 +12,7 @@ describe('eapteka.ru', () => {
     });
 
     it('search', () => {
-        HomePage.searchSomething('нурофен');
+        HomePage.searchSomething('витамин');
     });
 
     it('like all items on the first page', () => {
@@ -31,10 +31,21 @@ describe('eapteka.ru', () => {
     it('go to favourites and delete all like items', () => {
         LkPage.goToLikeItems();
         LkPage.likeItemsGroup.waitForDisplayed({ timeout: 5000 });
-        let liked = LkPage.likeItems.length;
-        console.log('liked2 = ', liked);
-        for (let i = 0; i < liked; i++) {
-            LkPage.dislikeItems(0);
+        if (LkPage.allPages.isExisting() == true) {
+            let liked1 = LkPage.likeItems.length;
+            for (let i = 0; i < liked1; i++) {
+                LkPage.dislikeItems(0);
+            }
+            browser.pause(2000);
+            let liked2 = LkPage.likeItems.length;
+            for (let i = 0; i < liked2; i++) {
+                LkPage.dislikeItems(0);
+            }
+        } else {
+            let liked = LkPage.likeItems.length;
+            for (let i = 0; i < liked; i++) {
+                LkPage.dislikeItems(0);
+            }
         }
         LkPage.noLikeItems.waitForDisplayed({ timeout: 5000 });
         expect(LkPage.noLikeItems.isExisting()).to.equal(true);
