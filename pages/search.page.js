@@ -6,14 +6,16 @@ class SearchPage extends Page {
     get searchItems() {return $$('div.cc-item--info')}
     get searchItemsBuyBtns() {return $$("//a[text()='Купить']")}
     get itemsNotLike() {return $$('a.cc-item--like')}
+    get itemNotLike() {return $("//a[@class='a.cc-item--like']")}
     get itemsIsLike() {return $$('a.cc-item--like.is-active.active.card__like--active')}
     get itemTitle() {return $('a.cc-item--title')}
-    get allPages() {return $('ul.d-flex.justify-content-start.justify-content-md-end')}
-    get pages() {return this.allPages.$$('li')}
+    get allPages() {return $('ul.custom-pagination__list')}
+    get pages() {return this.allPages.$$('a.custom-pagination__item')}
     get toTop() {return $('div.toTop')}
+    get loading() {return $('div.waitwindowlocalshadow')}
 
-    pageActive (index) {
-        return this.allPages.$(`li.active:nth-child(${index})`)
+    pageClick (index) {
+        return $(`//ul/li/a[text()='${index}']`)
     }
 
     likeItems (index) {
@@ -21,7 +23,14 @@ class SearchPage extends Page {
         this.itemsNotLike[index].scrollIntoView();
         this.itemsNotLike[index].waitForClickable({ timeout: 5000 });
         this.itemsNotLike[index].click();
-        this.itemsIsLike[index].waitForExist({ timeout: 5000 });
+        this.loading.waitForExist({ timeout: 5000, reverse: true });
+    }
+
+    likeAllItemsOnFirstPage () {
+        let liked = this.itemsNotLike.length;
+        for (let i = 0; i < liked; i++) {
+            this.likeItems(i);
+        }
     }
 
 }

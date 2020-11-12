@@ -2,7 +2,7 @@ import Page from './page'
 class HomePage extends Page {
     
     get searchInput() {return $('#search')}
-    get searchButton() {return $('button.searchbar__button.btn.btn-send')}
+    get searchButton() {return $('button.searchbar__button.btn.btn-warning')}
     get goLogin() {return $("//a[text()='Вход']")}
     get loginField() {return $("//input[@name='LOGIN']")}
     get passwordField() {return $("//input[@name='PASSWORD']")}
@@ -24,8 +24,8 @@ class HomePage extends Page {
         this.searchInput.waitForDisplayed({ timeout: 5000 });
         this.searchInput.moveTo();
         this.searchInput.setValue(index);
-        //this.searchButton.waitForClickable({ timeout: 5000 });
         this.searchButton.click();
+        browser.pause(2000);
     }
 }
 export default new HomePage()
